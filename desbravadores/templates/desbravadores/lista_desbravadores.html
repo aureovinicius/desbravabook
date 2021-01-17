@@ -1,0 +1,33 @@
+{% extends "desbravadores/base.html" %}
+    {% block titulo %}
+    Lista de Desbravadores
+    {% endblock titulo %}
+
+{% block conteudo %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Sexo</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in desbravadores %}
+
+             <tr>
+                 <td><a href="{% url 'listar_desbravador_id' i.id %}">{{i.nome}}</a> </td>
+                <td>{{i.data_nascimento | date:"d M Y"}} </td>
+                <td>{{i.sexo}} </td>
+                <td><a href="{% url 'editar_desbravador' i.id %}"> Editar</a>
+                    <a href="{% url 'remover_desbravador' i.id %}"> Remover</a></td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'cadastrar_desbravador' %}"> <button class="btn btn-primary">Novo cadastro</button> </a>
+
+        {% endblock conteudo %}

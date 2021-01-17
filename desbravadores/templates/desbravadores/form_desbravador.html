@@ -1,0 +1,43 @@
+{% extends "desbravadores/base.html" %}
+{% load meus_filtros %}
+{% block titulo %}
+    Novo Desbravador
+{% endblock titulo %}
+
+{% block conteudo %}
+
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label> Nome </label>
+            {{form.nome|addclass:'form-control'}}
+            {{form.nome.errors}}
+
+        </div>
+
+        <div class="form-group">
+            <label> Data de Nascimento </label>
+            {{form.data_nascimento|addclass:'form-control'}}
+            {{form.data_nascimento.errors}}
+        </div>
+
+        <div class="form-group">
+            <label> Sexo </label>
+            {{form.sexo|addclass:'form-control'}}
+            {{form.sexo.errors}}
+        </div>
+
+        <div class="form-group">
+            <label> email </label>
+            {{ form.email|addclass:'form-control'}}
+            {{form.email.errors}}
+        </div>
+        <div class="form-group">
+            <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>
+            <a href="{% url 'cadastrar_desbravador' %}"><input type="submit" name="Cadastrar" class="btn btn-success"></a>
+        </div>
+
+    </form>
+
+        {% endblock conteudo %}

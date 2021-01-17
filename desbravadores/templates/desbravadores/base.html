@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>
+    {% block titulo %}
+
+    {% endblock titulo %}
+</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static "desbravadores/css/style.css" %}">
+</head>
+<body>
+    <main class="container">
+        {% block conteudo %}
+
+        {% endblock conteudo %}
+    </main>
+</body>
+</html>
